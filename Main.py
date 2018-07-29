@@ -5,13 +5,22 @@ from Module import net_fn
 from Control import Spider_Control
 import time
 import codecs
+from Module import  wui
 
 class Main:
     def __init__(self):
-        self.Spider = Spider_Control.Spider()
-        self.Spider.Get_All_Host_Rank()
+        self.Wui = wui.WUI("","",exit_time=999999,port=9988)
+        self.Spider = Spider_Control.Spider(wui=self.Wui)
+        self.WS_Hook()
+        self.Wui.Start_WS(start_browser=0)
 
 
+
+
+
+        # self.Spider.Get_All_Host_Rank()
+    def WS_Hook(self):
+        self.Wui.Add_Recv_Msg_Hook("Renew_RealTime_Rank",self.Spider.Renew_RealTime_Rank_fn)
     def Export_CSV(self):
         Host_Rank_Data = self.Spider.Host_Rank_Data
 
@@ -87,6 +96,7 @@ class Main:
 
             # print(Total_List)
             # print(row_2)
+
         csv_all = csv_all
         # csv_all = csv_all.decode("big5")
         fp = open("export_total_money.csv", 'w+', encoding='utf-8')

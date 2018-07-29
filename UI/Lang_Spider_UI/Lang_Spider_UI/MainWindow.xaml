@@ -1,0 +1,117 @@
+﻿<Window x:Class="Lang_Spider_UI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lang_Spider_UI"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="554" Width="1133">
+    <Grid>
+        <Grid HorizontalAlignment="Left" Height="36" Margin="10,10,0,0" VerticalAlignment="Top" Width="158">
+            <Label Content="WS連線狀態：" HorizontalAlignment="Left" Margin="10,6,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="WS_Con_Stat" Content="未連線" HorizontalAlignment="Left" Margin="99,6,0,0" VerticalAlignment="Top"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="463" Margin="10,51,0,0" VerticalAlignment="Top" Width="247">
+            <DataGrid x:Name="Last_Hour_P_Rank" AutoGenerateColumns="False" Margin="10,38,10,10">
+                <DataGrid.Columns>
+
+                    <DataGridTemplateColumn Header="主播ID" >
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock  Text="{Binding pfid}"  />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Header="主播名稱" >
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock  Text="{Binding name}"  />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+
+            </DataGrid>
+
+            <Label Content="小時潛力榜" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        </Grid>
+        <Button Content="更新即時榜" HorizontalAlignment="Left" Margin="182,24,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Grid HorizontalAlignment="Left" Height="463" Margin="262,51,0,0" VerticalAlignment="Top" Width="247">
+            <DataGrid x:Name="Last_Hour_H_Rank" AutoGenerateColumns="False" Margin="10,38,10,10">
+                <DataGrid.Columns>
+
+                    <DataGridTemplateColumn Header="主播ID" >
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock  Text="{Binding pfid}"  />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Header="主播名稱" >
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock  Text="{Binding name}"  />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+
+            </DataGrid>
+
+            <Label Content="小時熱門榜" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="347" Margin="514,51,0,0" VerticalAlignment="Top" Width="247">
+            <DataGrid x:Name="Rank_P_Total" AutoGenerateColumns="False" Margin="10,38,10,10">
+                <DataGrid.Columns>
+
+                    <DataGridTemplateColumn Header="主播ID" >
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock  Text="{Binding pfid}"  />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Header="主播名稱" >
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock  Text="{Binding name}"  />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+
+            </DataGrid>
+
+            <Label Content="潛力總榜" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="347" Margin="786,51,0,0" VerticalAlignment="Top" Width="247">
+            <DataGrid x:Name="Rank_H_Total" AutoGenerateColumns="False" Margin="10,38,10,10">
+                <DataGrid.Columns>
+
+                    <DataGridTemplateColumn Header="主播ID" >
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock  Text="{Binding pfid}"  />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Header="主播名稱" >
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock  Text="{Binding name}"  />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+
+            </DataGrid>
+
+            <Label Content="熱門總榜" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        </Grid>
+
+    </Grid>
+</Window>

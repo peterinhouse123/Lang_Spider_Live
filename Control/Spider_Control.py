@@ -7,11 +7,27 @@ import json
 
 
 class Spider:
-    def __init__(self):
+
+    def __init__(self,wui=None):
         self.Lang_Obj = Lang_Live.Lang_Live()
         self.Lang_Obj.Init_Data()
         self.Queue = Queue()
         self.Host_Rank_Data = {}
+        self.Wui = wui
+
+    def Renew_RealTime_Rank_fn(self,client,detail):
+
+        self.Lang_Obj.Get_RealTime_Host_Rank()
+        end = {}
+        end['Host_Last_Hour_Potential_Rank'] = self.Lang_Obj.Host_Last_Hour_Potential_Rank
+        end['Host_Last_Hour_Hot_Rank'] = self.Lang_Obj.Host_Last_Hour_Hot_Rank
+        end['Host_Potential_Rank'] = self.Lang_Obj.Host_Potential_Rank
+        end['Host_Hot_Rank'] = self.Lang_Obj.Host_Hot_Rank
+      
+        self.Wui.Send_Order(client,"New_Realtime_Rank",end)
+
+
+
 
 
     def Get_All_Host_Rank(self):
